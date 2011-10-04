@@ -11,6 +11,10 @@
 " <i_CTRL-X_@>		Find registers whose contents match the keyword before
 "			the cursor. First, a match at the beginning is tried; if
 "			that returns no results, it may match anywhere. 
+"			The register contents is always inserted characterwise,
+"			regardless of the register type. 
+"			Note: If multiple registers contain the same content,
+"			only the first register is shown in the completion list. 
 " INSTALLATION:
 " DEPENDENCIES:
 " CONFIGURATION:
@@ -26,6 +30,8 @@
 " Maintainer:	Ingo Karkat <ingo@karkat.de>
 "
 " REVISION	DATE		REMARKS 
+"	003	05-Oct-2011	ENH: Add number of lines to completion menu
+"				text. 
 "	002	07-Aug-2009	Using a map-expr instead of i_CTRL-O to set
 "				'completefunc', as the temporary leave of insert
 "				mode caused a later repeat via '.' to only
@@ -51,6 +57,14 @@ function! s:RegisterToMatchObject( register )
     let l:matchObj = {}
     let l:matchObj.word = getreg(a:register)
     let l:matchObj.menu = '"' . a:register
+
+    if stridx(l:matchObj.word, "\n") == -1
+	" Incomplete line, characterwise insert. 
+    else
+	" Determine number of inserted lines. 
+	let l:insertedLineNum = len(split(l:matchObj.word[0:-2], "\n", 1))
+	let l:matchObj.menu .= printf(' (%d line%s)', l:insertedLineNum, (l:insertedLineNum == 1 ? '' : 's'))
+    endif
     return CompleteHelper#Abbreviate(l:matchObj)
 endfunction
 function! RegisterComplete#FindMatches( pattern )
