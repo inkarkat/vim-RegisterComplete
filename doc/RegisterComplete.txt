@@ -1,0 +1,77 @@
+*RegisterComplete.txt*  Insert mode completion for register contents.
+
+		     REGISTER COMPLETE    by Ingo Karkat
+							*RegisterComplete.vim*
+description			|RegisterComplete-description|
+usage				|RegisterComplete-usage|
+installation			|RegisterComplete-installation|
+configuration			|RegisterComplete-configuration|
+integration			|RegisterComplete-integration|
+limitations			|RegisterComplete-limitations|
+known problems			|RegisterComplete-known-problems|
+todo				|RegisterComplete-todo|
+history				|RegisterComplete-history|
+
+==============================================================================
+DESCRIPTION					*RegisterComplete-description*
+
+This plugin offers quick access to stored register contents, provided you know
+a part of the contents, but not the register where it is stored. This is
+especially useful for the named registers "1.."9 filled by changes and
+deletions, where content is continuously shifted.
+
+==============================================================================
+USAGE						      *RegisterComplete-usage*
+								  *i_CTRL-X_@*
+CTRL-X @		Find registers whose contents match the keyword before
+			the cursor. First, a match at the beginning is tried;
+			if that returns no results, it may match anywhere. The
+			register contents is always inserted characterwise,
+			regardless of the register type.
+
+EXAMPLE						    *RegisterComplete-example*
+
+==============================================================================
+INSTALLATION				       *RegisterComplete-installation*
+
+This script is packaged as a |vimball|. If you have the "gunzip" decompressor
+in your PATH, simply edit the *.vba.gz package in Vim; otherwise, decompress
+the archive first, e.g. using WinZip. Inside Vim, install by sourcing the
+vimball or via the |:UseVimball| command. >
+    vim RegisterComplete.vba.gz
+    :so %
+To uninstall, use the |:RmVimball| command.
+
+DEPENDENCIES				       *RegisterComplete-dependencies*
+
+- Requires Vim 7.0 or higher.
+- Requires the CompleteHelper.vim plugin (vimscript #3914).
+
+==============================================================================
+CONFIGURATION				      *RegisterComplete-configuration*
+
+==============================================================================
+LIMITATIONS					*RegisterComplete-limitations*
+
+KNOWN PROBLEMS				     *RegisterComplete-known-problems*
+
+TODO						       *RegisterComplete-todo*
+
+IDEAS						      *RegisterComplete-ideas*
+
+==============================================================================
+HISTORY						    *RegisterComplete-history*
+
+GOAL
+First published version.
+
+0.01	13-Aug-2008
+Started development.
+
+==============================================================================
+Copyright: (C) 2008-2012 Ingo Karkat
+The VIM LICENSE applies to this script; see |copyright|.
+
+Maintainer:	Ingo Karkat <ingo@karkat.de>
+==============================================================================
+ vim:tw=78:ts=8:ft=help:norl:
