@@ -50,6 +50,18 @@ DEPENDENCIES				       *RegisterComplete-dependencies*
 ==============================================================================
 CONFIGURATION				      *RegisterComplete-configuration*
 
+For a permanent configuration, put the following commands into your |vimrc|:
+
+			*g:RegisterComplete_Registers*
+To change the registers that are considered, use: >
+    let g:RegisterComplete_Registers = '"0123456789-abcdefghijklmnopqrstuvwxyz*+/'
+<
+						      *RegisterComplete-remap*
+If you want to use a different mapping, map your keys to the
+<Plug>(RegisterComplete) mapping target _before_ sourcing the script (e.g.
+in your |vimrc|): >
+    imap <C-x>@ <Plug>(RegisterComplete)
+<
 ==============================================================================
 LIMITATIONS					*RegisterComplete-limitations*
 
