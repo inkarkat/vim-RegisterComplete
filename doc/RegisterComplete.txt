@@ -35,16 +35,18 @@ EXAMPLE						    *RegisterComplete-example*
 INSTALLATION				       *RegisterComplete-installation*
 
 This script is packaged as a |vimball|. If you have the "gunzip" decompressor
-in your PATH, simply edit the *.vba.gz package in Vim; otherwise, decompress
+in your PATH, simply edit the *.vmb.gz package in Vim; otherwise, decompress
 the archive first, e.g. using WinZip. Inside Vim, install by sourcing the
 vimball or via the |:UseVimball| command. >
-    vim RegisterComplete.vba.gz
+    vim RegisterComplete*.vmb.gz
     :so %
 To uninstall, use the |:RmVimball| command.
 
 DEPENDENCIES				       *RegisterComplete-dependencies*
 
 - Requires Vim 7.0 or higher.
+- Requires the |ingo-library.vim| plugin (vimscript #4433), version 1.010 or
+  higher.
 - Requires the |CompleteHelper.vim| plugin (vimscript #3914).
 
 ==============================================================================
@@ -52,7 +54,7 @@ CONFIGURATION				      *RegisterComplete-configuration*
 
 For a permanent configuration, put the following commands into your |vimrc|:
 
-			*g:RegisterComplete_Registers*
+						*g:RegisterComplete_Registers*
 To change the registers that are considered, use: >
     let g:RegisterComplete_Registers = '"0123456789-abcdefghijklmnopqrstuvwxyz*+/'
 <
@@ -81,7 +83,7 @@ First published version.
 Started development.
 
 ==============================================================================
-Copyright: (C) 2008-2012 Ingo Karkat
+Copyright: (C) 2008-2015 Ingo Karkat
 The VIM LICENSE applies to this plugin; see |copyright|.
 
 Maintainer:	Ingo Karkat <ingo@karkat.de>
