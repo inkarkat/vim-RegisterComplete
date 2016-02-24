@@ -20,6 +20,10 @@ a part of the contents, but not the register where it is stored. This is
 especially useful for the named registers "1.."9 filled by changes and
 deletions, where content is continuously shifted.
 
+SEE ALSO								     *
+- EasyClipRing.vim (vimscript #5271) provides an auto-completion style popup
+  menu for registers. It depends on vim-easyclip.
+
 ==============================================================================
 USAGE						      *RegisterComplete-usage*
 								  *i_CTRL-X_@*
