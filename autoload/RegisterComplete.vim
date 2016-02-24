@@ -2,13 +2,16 @@
 "
 " DEPENDENCIES:
 "   - CompleteHelper.vim autoload script
+"   - CompleteHelper/Abbreviate.vim autoload script
 "
-" Copyright: (C) 2008-2012 Ingo Karkat
+" Copyright: (C) 2008-2014 Ingo Karkat
 "   The VIM LICENSE applies to this script; see ':help copyright'.
 "
 " Maintainer:	Ingo Karkat <ingo@karkat.de>
 "
 " REVISION	DATE		REMARKS
+"	005	18-Dec-2014	Move away from deprecated
+"				CompleteHelper#Abbreviate().
 "	004	20-Aug-2012	Split off functions into separate autoload
 "				script and documentation into dedicated help
 "				file.
@@ -40,7 +43,7 @@ function! s:RegisterToMatchObject( register )
 	let l:insertedLineNum = len(split(l:matchObj.word[0:-2], "\n", 1))
 	let l:matchObj.menu .= printf(' (%d line%s)', l:insertedLineNum, (l:insertedLineNum == 1 ? '' : 's'))
     endif
-    return CompleteHelper#Abbreviate(l:matchObj)
+    return CompleteHelper#Abbreviate#Word(l:matchObj)
 endfunction
 function! RegisterComplete#FindMatches( pattern )
     let l:matches = map(s:GetMatchingRegisters(a:pattern), 's:RegisterToMatchObject(v:val)')
